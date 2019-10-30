@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../stylesheets/styles.css";
+
 export default class SearchPage extends React.Component {
   state = {
     edition: ""
@@ -36,26 +38,23 @@ export default class SearchPage extends React.Component {
   render() {
     return (
       <div>
-        <h1>Please search for an edition of xkcd</h1>
         <form onSubmit={this.handleSubmit}>
           <p>
             <input
               type="text"
-              placeholder="enter text here"
               name="edition"
               value={this.state.edition}
               onChange={this.handleInputChange}
+              className="searchBar"
             />
-          </p>
-          <p>
             <button type="submit" className="searchButton">
               Search
             </button>
           </p>
         </form>
-
         {!!this.state.comic ? (
           <>
+            <div className="titleDiv">{this.state.comic.title}</div>
             <a href={`https://www.xkcd.com/${this.state.comic.num}/`}>
               <img
                 title={this.state.comic.alt}
@@ -64,9 +63,9 @@ export default class SearchPage extends React.Component {
                 src={this.state.comic.img}
               ></img>
             </a>
-            <div>
-              This comic was published on {this.state.comic.month},{" "}
-              {this.state.comic.day}, {this.state.comic.year}
+            <div className="timeStamp">
+              This comic was published on ({this.state.comic.month}/
+              {this.state.comic.day}/{this.state.comic.year})
             </div>
           </>
         ) : null}

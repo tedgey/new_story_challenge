@@ -1,5 +1,7 @@
 import React from "react";
 
+import "../stylesheets/styles.css";
+
 export default class HomePage extends React.Component {
   state = {
     loading: true,
@@ -21,14 +23,14 @@ export default class HomePage extends React.Component {
           <div>loading...</div>
         ) : (
           <div>
-            <div>{this.state.comic.title}</div>
+            <div className="titleDiv">{this.state.comic.title}</div>
             <img
               src={this.state.comic.img}
               alt={this.state.comic.title}
               title={this.state.comic.alt}
               className="latestImage"
             />
-            <div>
+            <div className="timeStamp">
               This comic was published on {this.state.comic.month},{" "}
               {this.state.comic.day}, {this.state.comic.year}
             </div>

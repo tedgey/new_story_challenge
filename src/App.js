@@ -5,7 +5,7 @@ import MainNav from "./components/mainNav";
 import HomePage from "./components/homePage";
 import SearchPage from "./components/searchPage";
 
-// import "./App.css";
+import "./stylesheets/styles.css";
 
 const routesArray = [
   { linkRoute: "/", linkName: "Latest" },
@@ -16,7 +16,9 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <MainNav routes={routesArray} />
+        <header>
+          <MainNav routes={routesArray} />
+        </header>
         <Route path="/" exact component={HomePage} className="latest" />
         <Route path="/search" component={SearchPage} className="search" />
       </div>
